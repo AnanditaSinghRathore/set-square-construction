@@ -1,0 +1,24 @@
+:root {
+  /* Backgrounds */
+  /* --bg-main: #F9F8F6; */
+  --bg-main: white;
+  --bg-white: #ffffff;
+
+  /* Text */
+  --text-primary: #111111;
+  --text-body: #4B5563;
+  --text-muted: #888888;
+
+  /* Accents */
+  --accent-red: #E30613;
+  --accent-navy: #0A2540;
+
+  /* Borders */
+  --border-light: #E5E5E5;
+
+  /* Layout */
+  --container-max: 1440px;
+
+  /* Transitions */
+  --transition-smooth: all 300ms ease-in-out;
+}

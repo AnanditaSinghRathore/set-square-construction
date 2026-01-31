@@ -1,0 +1,141 @@
+/* ==============================
+   SPOTLIGHT SECTION
+================================= */
+.spotlight {
+  position: relative;
+  margin-top: -140px; /* overlaps hero */
+  z-index: 5;
+}
+
+.spotlight-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  background: var(--bg-main);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  padding: 80px;
+  border-top: 1px solid var(--border-light);
+}
+
+/* ==============================
+   LEFT CONTENT
+================================= */
+.spotlight-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-red);
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.spotlight-title {
+  font-size: 2.8rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+.spotlight-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  max-width: 480px;
+}
+
+/* ==============================
+   RIGHT STATS GRID
+================================= */
+.spotlight-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.spotlight-card {
+  position: relative;
+  padding-top: 20px;
+  cursor: pointer;
+}
+
+/* Top premium line */
+.spotlight-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 2px;
+  background-color: var(--border-light);
+  transition: all 300ms ease;
+}
+
+/* Hover line → red */
+.spotlight-card:hover .spotlight-line {
+  background-color: var(--accent-red);
+  width: 64px;
+}
+
+/* Stat number */
+.spotlight-card h3 {
+  font-size: 1.50rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+/* Stat label */
+.spotlight-card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* Arrow */
+.spotlight-arrow {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  transform: translateX(0);
+  transition: transform 300ms ease, color 300ms ease;
+}
+
+/* Arrow animation */
+.spotlight-card:hover .spotlight-arrow {
+  transform: translateX(6px);
+  color: var(--accent-red);
+}
+
+/* ==============================
+   RESPONSIVE
+================================= */
+@media (max-width: 1024px) {
+  .spotlight-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .spotlight-right {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .spotlight {
+    margin-top: -80px;
+  }
+
+  .spotlight-container {
+    padding: 48px 24px;
+  }
+
+  .spotlight-title {
+    font-size: 2.1rem;
+  }
+
+  .spotlight-right {
+    grid-template-columns: 1fr;
+  }
+}

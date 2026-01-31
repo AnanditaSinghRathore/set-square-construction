@@ -1,0 +1,187 @@
+/* ===============================
+   HEADER BASE
+================================ */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--bg-main);
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* ===============================
+   TOP HEADER WRAPPER
+================================ */
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 80px;
+}
+
+/* Brand (Logo + Text) */
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-brand img {
+  height: 80px;
+  width: auto;
+}
+
+.brand-text {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: black;
+  white-space: nowrap;
+}
+.contact-number {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: var(--transition-smooth);
+}
+
+.contact-number:hover {
+  opacity: 0.75;
+}
+
+.phone-icon {
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
+}
+
+
+/* Actions (Phone + CTA) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.contact-number {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.contact-number:hover {
+  opacity: 0.7;
+}
+
+.btn-quote {
+  padding: 10px 22px;
+  background-color: var(--text-primary);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.btn-quote:hover {
+  background-color: var(--accent-red);
+}
+
+/* ===============================
+   NAVBAR
+================================ */
+.header-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 80px;
+  border-top: 1px solid var(--border-light);
+}
+
+/* Nav Lists */
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+}
+
+/* Nav Links */
+.nav-link {
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  padding: 4px 0;
+  transition: var(--transition-smooth);
+}
+
+/* Hover underline (premium) */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 1px;
+  background-color: var(--text-primary);
+  transition: width 300ms ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Active State */
+.nav-link.active {
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Accent link (Contact) */
+.nav-highlight {
+  color: var(--accent-red);
+}
+
+.nav-highlight::after {
+  background-color: var(--accent-red);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 1024px) {
+  .header-wrapper,
+  .header-navbar {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-wrapper {
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px 24px;
+  }
+
+  .header-navbar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 24px;
+  }
+
+  .nav-left,
+  .nav-right {
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

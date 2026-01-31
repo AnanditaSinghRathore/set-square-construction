@@ -1,0 +1,123 @@
+/* ==============================
+   HERO BASE
+================================= */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 650px;
+  overflow: hidden;
+  background-color: #000;
+  perspective: 1200px; /* for 3D parallax */
+}
+
+/* ==============================
+   HERO IMAGES STACK
+================================= */
+.hero-images {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 0.3s ease, transform 8s ease-out;
+  z-index: 1;
+}
+
+/* Active image */
+.hero-img.img-1.active,
+.hero-img.img-2.active,
+.hero-img.img-3.active,
+.hero-img.img-4.active {
+  opacity: 1;
+  transform: scale(1); /* zoom-out */
+}
+
+/* ==============================
+   DARK OVERLAY FOR READABILITY
+================================= */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  z-index: 2;
+}
+
+/* ==============================
+   HERO CONTENT
+================================= */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 24px;
+  transition: transform 0.1s ease-out; /* 3D parallax */
+}
+
+/* Main text */
+.hero-content h1 {
+  color: white;
+  font-size: 3.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 55px;
+  max-width: 900px;
+  letter-spacing: -0.02em;
+}
+
+/* Call-to-action button */
+.hero-cta {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 14px 30px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-bottom: 50px;
+}
+
+.hero-cta:hover {
+  background-color: #fff;
+  color: var(--text-dark, #111);
+  transform: scale(1.05);
+}
+
+/* ==============================
+   RESPONSIVE HERO
+================================= */
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+}
