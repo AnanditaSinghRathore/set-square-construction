@@ -1,87 +1,63 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { projectsData } from "../../data/projectsData";
 import "./Projects.css";
 
-const projects = [
-  {
-    id: 1,
-    title: "Multi-Family Residential Framing",
-    category: "Residential",
-    image: "/projects/project-1.jpg",
-    description:
-      "Precision framing for multi-family developments across BC with safety and quality assurance."
-  },
-  {
-    id: 2,
-    title: "Commercial Complex",
-    category: "Commercial",
-    image: "/projects/project-2.jpg",
-    description:
-      "Structural framing for commercial projects ensuring timely delivery and robust construction."
-  },
-  {
-    id: 3,
-    title: "Custom Homes",
-    category: "Custom Residential",
-    image: "/projects/project-3.jpg",
-    description:
-      "Handcrafted framing for custom residential homes with a focus on quality and efficiency."
-  },
-  {
-    id: 4,
-    title: "Prefab On-Site Solutions",
-    category: "Prefab",
-    image: "/projects/project-4.jpg",
-    description:
-      "On-site prefabrication for reducing construction time and maintaining high quality standards."
-  },
-  {
-    id: 5,
-    title: "Mixed-Use Development",
-    category: "Commercial",
-    image: "/projects/project-5.jpg",
-    description:
-      "Mixed-use projects combining residential and commercial spaces with superior framing execution."
-  },
-  {
-    id: 6,
-    title: "Luxury Multi-Family",
-    category: "Residential",
-    image: "/projects/project-6.jpg",
-    description:
-      "High-end multi-family residential projects with precise structural framing."
-  }
-];
+const locations = Object.keys(projectsData);
 
 export default function Projects() {
+  const [activeLocation, setActiveLocation] = useState("DELTA");
+
   return (
-    <section className="projects-page section">
+    <section className="projects-page">
       <div className="container">
         {/* Header */}
-        <div className="projects-header">
+        <header className="projects-header">
           <span className="eyebrow">Projects</span>
-          <h1 className="projects-title">Excellence in every frame</h1>
-          <p className="projects-intro">
-            Set-Square Construction delivers reliable framing solutions for
-            residential and commercial developments throughout British Columbia.
+          <h1>Excellence in every frame</h1>
+          <p>
+            Precision wood framing solutions delivered across British Columbia.
           </p>
+        </header>
+
+        {/* Location Tabs */}
+        <div className="projects-tabs">
+          {locations.map((location) => (
+            <button
+              key={location}
+              className={`tab-btn ${
+                activeLocation === location ? "active" : ""
+              }`}
+              onClick={() => setActiveLocation(location)}
+            >
+              {location}
+            </button>
+          ))}
         </div>
 
-        {/* Projects Grid */}
-        <div className="projects-grid">
-          {projects.map((project) => (
-            <article key={project.id} className="project-card">
+        {/* Projects List */}
+        <div className="projects-list">
+          {projectsData[activeLocation].map((project) => (
+            <NavLink
+              key={project.id}
+              to={`/projects/delta`}
+              className="project-row"
+            >
+              {/* Image */}
               <div className="project-image">
                 <img src={project.image} alt={project.title} />
               </div>
 
+              {/* Content */}
               <div className="project-content">
                 <h2>{project.title}</h2>
                 <p>{project.description}</p>
-                <NavLink to={`/projects/${project.id}`} className="project-link">
-                  Learn More →
-                </NavLink>
+
+                <span className="project-link">
+                  View projects in {activeLocation} <span>→</span>
+                </span>
               </div>
-            </article>
+            </NavLink>
           ))}
         </div>
       </div>
