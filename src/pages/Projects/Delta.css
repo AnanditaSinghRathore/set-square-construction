@@ -21,7 +21,7 @@
 }
 
 .location-header h1 {
-  font-size: 48px;
+  font-size: 38px;
   font-weight: 600;
   color: #0f172a;
   margin-bottom: 16px;
@@ -92,20 +92,45 @@
 /* ---------- READ MORE ---------- */
 
 .read-more {
-  font-size: 15px;
-  font-weight: 500;
-  color: #0f172a;
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: transform 0.3s ease, color 0.3s ease;
+  margin-top: 24px;
+
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #111;
+  text-decoration: none;
+
+  position: relative;
+  padding-bottom: 6px;
+
+  transition: color 0.3s ease;
 }
 
-.location-project:hover .read-more {
-  transform: translateX(6px);
-  color: #000;
+/* Thin premium line */
+.read-more::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #111;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
+
+/* Hover = JLL magic */
+.read-more:hover {
+  color: #8b1e1e; /* corporate red */
+}
+
+.read-more:hover::after {
+  background: #8b1e1e;
+  transform: scaleX(1.1);
+}
+
 
 /* ---------- RESPONSIVE ---------- */
 

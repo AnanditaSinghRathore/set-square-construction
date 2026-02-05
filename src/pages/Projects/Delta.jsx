@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "./Delta.css";
 
 export default function DeltaProjects() {
@@ -35,7 +36,9 @@ export default function DeltaProjects() {
               crafted community centerpiece.
             </p>
 
-            <span className="read-more">Read more →</span>
+            <NavLink to="/projects/delta/granary" className="read-more">
+  Read more →
+</NavLink>
           </div>
         </div>
 
@@ -56,7 +59,9 @@ export default function DeltaProjects() {
               coastal living.
             </p>
 
-            <span className="read-more">Read more →</span>
+            <NavLink to="/projects/delta/boundary-bay" className="read-more">
+  Read more →
+</NavLink>
           </div>
           <div className="location-image">
             <img src="/delta-boundary.jpg" alt="Boundary Beach Home" />

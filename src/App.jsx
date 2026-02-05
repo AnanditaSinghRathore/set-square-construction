@@ -7,6 +7,9 @@ import Home from "./pages/Home/Home";
 import Projects from "./pages/Projects/Projects";
 import ProjectDetails from "./pages/Projects/ProjectDetails";
 import DeltaProjects from "./pages/Projects/Delta";
+import Granary from "./pages/Projects/Granary";
+import BoundaryBay from "./pages/Projects/BoundaryBay"
+
 
 
 import Services from "./pages/Services/Services";
@@ -24,7 +27,8 @@ function App() {
         <Route path="/projects" element={<Projects />} />
   <Route path="/projects/:id" element={<ProjectDetails />} />
   <Route path="/projects/delta" element={<DeltaProjects />} />
-  
+  <Route path="/projects/delta/granary" element={<Granary />} />
+  <Route path="/projects/delta/boundary-bay" element={<BoundaryBay />} />
 
 
 
